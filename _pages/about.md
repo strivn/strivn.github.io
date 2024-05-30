@@ -2,24 +2,29 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Data Privacy and Responsible AI Enthusiast • Upcoming @Carnegie Mellon University
 
-profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+# profile:
+#   align: right
+#   image: prof_pic.jpg
+#   image_circular: false # crops the image to make it circular
+#   more_info: >
+#     Bandung, Indonesia
 
 news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+
 ---
+<br>
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+**P.S. Still working on this site**
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+👋🏻 Hi! 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I was a consultant working collaboratively with various functions and clients across industries to help realizing the value of data and technology while maintaining its protection. Now, I'm currently an upcoming graduate student at [Carnegie Mellon University](https://www.heinz.cmu.edu). 
+
+Bit of an background - I'm deeply curious about the intricate interplay between business, technology, and society. This interest has propelled me into the field of Personal Data Protection and Responsible AI. I enjoy diving into the regulatory and legal aspects, technical engineering, design and user experience, ethical considerations, and also exploring the historical and social context. The problem is multidisciplinary, and which is why I believe that a diverse palette of interest is required on top of working collaboratively! 
+
+Outside of professional work, I love taking pictures, reading books, and enjoying coffee. If you have any book or coffee recommendations, do let me know!
+<br>
