@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-First professional certification - Certified Information Privacy Manager (CIPM) from IAPP! 
+First professional certification - Certified Information Privacy Manager (CIPM) from IAPP!

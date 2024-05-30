@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Completed AWS Solutions Architect - Associate and AWS Machine Learning Specialty! 
+Completed AWS Solutions Architect - Associate and AWS Machine Learning Specialty!

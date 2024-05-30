@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Received my Google Cloud Machine Learning Engineer certification! 
+Received my Google Cloud Machine Learning Engineer certification!
