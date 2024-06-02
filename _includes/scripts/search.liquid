@@ -80,7 +80,7 @@
           description: "{{ post.description | strip_html | strip_newlines | escape }}",
           section: "Posts",
           handler: () => {
-            window.location.href = "{{ post.url | relative_url }}";
+            window.location.href = "{{ post.redirect | post.url | relative_url }}";
           },
         },
       {%- endfor -%}
@@ -92,15 +92,17 @@
             {%- else -%}
               {%- assign title = item.title | escape -%}
             {%- endif -%}
-            id: "{{ collection.label }}-{{ title | slugify }}",
-            title: '{{ title | emojify }}',
-            description: "{{ item.description | strip_html | strip_newlines | escape }}",
-            section: "{{ collection.label | capitalize }}",
+            {%- if collection.label != "posts" -%} 
+              id: "{{ collection.label }}-{{ title | slugify }}",
+              title: '{{ title | emojify }}',
+              description: "{{ item.description | strip_html | strip_newlines | escape }}",
+              section: "{{ collection.label | capitalize }}",
             {%- unless item.inline -%}
               handler: () => {
                 window.location.href = "{{ item.url | relative_url }}";
               },
             {%- endunless -%}
+            {%- endif -%}
           },
         {%- endfor -%}
       {%- endfor -%}
@@ -257,7 +259,7 @@
         {%- if site.x_username -%}
           {
             id: 'socials-x',
-            title: 'X',
+            title: 'Twitter',
             description: 'Twitter',
             section: 'Socials',
             handler: () => {
