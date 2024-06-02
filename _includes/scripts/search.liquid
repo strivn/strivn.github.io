@@ -3,7 +3,8 @@
   <ninja-keys
     hideBreadcrumbs
     noAutoLoadMdIcons
-    placeholder="Type to start searching"></ninja-keys>
+    placeholder="Type to start searching"
+  ></ninja-keys>
   <script>
     let theme = determineComputedTheme();
     const ninjaKeys = document.querySelector('ninja-keys');
@@ -16,9 +17,9 @@
 
     const openSearchModal = () => {
       // collapse navbarNav if expanded on mobile
-      const navbarNav = document.querySelector('.navbar-collapse');
-      if (navbarNav.classList.contains('show')) {
-        navbarNav.classList.remove('show');
+      const $navbarNav = $('#navbarNav');
+      if ($navbarNav.hasClass('show')) {
+        $navbarNav.collapse('hide');
       }
       ninjaKeys.open();
     };
@@ -79,35 +80,68 @@
         {
           {%- assign title = post.title | escape -%}
           id: "post-{{ title | slugify }}",
-          title: "{{ title }}",
+          {% if post.redirect == blank %}
+            title: "{{ title }}",
+          {% elsif post.redirect contains '://' %}
+            // TODO: fix the svg icon position for external posts
+            // title: '{{ title }} <svg width="2rem" height="2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+            title: "{{ title }}",
+          {% else %}
+            title: "{{ title }}",
+          {% endif %}
           description: "{{ post.description | strip_html | strip_newlines | escape }}",
           section: "Posts",
           handler: () => {
-            window.location.href = "{{ post.redirect | post.url | relative_url }}";
+            {% if post.redirect == blank %}
+              window.location.href = "{{ post.url | relative_url }}";
+            {% elsif post.redirect contains '://' %}
+              window.open("{{ post.redirect }}", "_blank");
+            {% else %}
+              window.location.href = "{{ post.redirect | relative_url }}";
+            {% endif %}
           },
         },
       {%- endfor -%}
+      {%- assign news = site.news | reverse -%}
+      {%- for item in news -%}
+        {
+          {%- if item.inline -%}
+            {%- assign title = item.content | remove: '<p>' | remove: '</p>' | escape | strip -%}
+          {%- else -%}
+            {%- assign title = item.title | escape -%}
+          {%- endif -%}
+          id: "news-{{ title | slugify }}",
+          title: '{{ title | emojify }}',
+          description: "{{ item.description | strip_html | strip_newlines | escape }}",
+          section: "News",
+          {%- unless item.inline -%}
+            handler: () => {
+              window.location.href = "{{ item.url | relative_url }}";
+            },
+          {%- endunless -%}
+        },
+      {%- endfor -%}
       {%- for collection in site.collections -%}
-        {%- for item in collection.docs -%}
-          {
-            {%- if item.inline -%}
-              {%- assign title = item.content | remove: '<p>' | remove: '</p>' | escape | strip -%}
-            {%- else -%}
-              {%- assign title = item.title | escape -%}
-            {%- endif -%}
-            {%- if collection.label != "posts" -%}
+        {%- if collection.label != 'news' and collection.label != 'posts' -%}
+          {%- for item in collection.docs -%}
+            {
+              {%- if item.inline -%}
+                {%- assign title = item.content | remove: '<p>' | remove: '</p>' | escape | strip -%}
+              {%- else -%}
+                {%- assign title = item.title | escape -%}
+              {%- endif -%}
               id: "{{ collection.label }}-{{ title | slugify }}",
               title: '{{ title | emojify }}',
               description: "{{ item.description | strip_html | strip_newlines | escape }}",
               section: "{{ collection.label | capitalize }}",
-            {%- unless item.inline -%}
-              handler: () => {
-                window.location.href = "{{ item.url | relative_url }}";
-              },
-            {%- endunless -%}
-            {%- endif -%}
-          },
-        {%- endfor -%}
+              {%- unless item.inline -%}
+                handler: () => {
+                  window.location.href = "{{ item.url | relative_url }}";
+                },
+              {%- endunless -%}
+            },
+          {%- endfor -%}
+        {%- endif -%}
       {%- endfor -%}
       {%- if site.socials_in_search -%}
         {%- if site.email -%}
@@ -191,6 +225,7 @@
           },
         {%- endif -%}
         {%- if site.osf_id -%}
+          {
             id: 'socials-open-science-framework',
             title: 'Open Science Framework',
             section: 'Socials',
@@ -262,7 +297,7 @@
         {%- if site.x_username -%}
           {
             id: 'socials-x',
-            title: 'Twitter',
+            title: 'X',
             description: 'Twitter',
             section: 'Socials',
             handler: () => {
