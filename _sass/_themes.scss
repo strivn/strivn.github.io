@@ -65,6 +65,66 @@
   }
 }
 
+// Setting up cookie button
+
+ #cookie-notice {
+  /* padding: 0.5rem 1rem; */
+  display: none;
+  position: fixed;
+  bottom: 35px;
+  width: calc(100%);
+  background: var(--global-footer-bg-color);
+  text-align: center;
+}
+
+#cookie-notice span {
+  color: var(--global-footer-text-color);
+  font-size: 0.75rem;
+}
+
+#cookie-notice a {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+/* for smaller screens */
+@media (max-width: 576px) {
+  #cookie-notice span {
+    display: block;
+    padding-top: 3px;
+    margin-bottom: 1rem;
+  }
+
+  #cookie-notice a {
+    position: relative;
+    bottom: 4px;
+  }
+}
+
+#cookie-button {
+  color: var(--global-back-to-top-text-color);
+  background: var(--global-back-to-top-bg-color);
+  bottom: 50px;
+  right: $back-to-top-right;
+  height: $back-to-top-height;
+  width: $back-to-top-width;
+  z-index: $back-to-top-z-index;
+  border-radius: 50%;
+  text-align: center;
+  position:fixed;
+}
+
+#cookie-button i {
+  position:relative;
+  top: calc(50% - 12px); /* 50% - 3/4 of icon height */
+}
+
+#cookie-button:hover {
+  cursor: pointer;
+  background-color: #FFFFFF;
+}
+
 html[data-theme="dark"] {
   --global-bg-color: #{$grey-color-dark};
   --global-code-bg-color: #{$code-bg-color-dark};

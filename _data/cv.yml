@@ -1,0 +1,94 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Ivan Wiryadi
+    # - name: Date of Birth
+    #   value: 14th March 1879
+    - name: Languages
+      value: English, Bahasa Indonesia
+    - name: Link
+      value: https://strivn.github.io
+    
+- title: Education
+  type: time_table
+  contents:
+    - title: Information Systems and Technology, Bachelor of Science
+      institution: Institut Teknologi Bandung
+      year: 2016 - 2020
+      # description:
+      #   - Description 1.
+      #   - Description 2.
+      #   - title: Description 3.
+      #     contents:
+      #       - Sub-description 1.
+      #       - Sub-description 2.
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Consultant, Cybersecurity and Privacy
+      institution: PwC
+      year: 2023 - 2024
+      # description:
+      #   - Description 1.
+      #   - Description 2.
+      #   - title: Description 3.
+      #     contents:
+      #       - Sub-description 1.
+      #       - Sub-description 2.
+    - title: Consultant, Data and Analytics
+      institution: PwC
+      year: 2020 - 2023
+      # description:
+      #   - Description 1.
+      #   - Description 2.
+
+# - title: Open Source Projects
+#   type: time_table
+#   contents:
+#     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+#       year: 2015-now
+#       description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+
+- title: Certificates
+  type: time_table
+  contents:
+    - year: 2024
+      items:
+        - Google Cloud Certified Machine Learning Engineer (GCP MLE)
+        - Certified Information Privacy Technologist (CIPT)
+    - year: 2023
+      items:
+        - Amazon Web Services Certified Machine Learning Specialty (AWS MLS)
+        - Amazon Web Services Certified Solutions Architect - Associate (AWS SAA)
+        - Certified Information Privacy Manager (CIPM)
+    - year: 2021
+      items:
+        - Alteryx Designer Core
+
+
+- title: Awards
+  type: time_table
+  contents:
+    - year: 2023
+      items:
+        - Scholarship Awardee - Indonesia Endowment Fund for Education
+
+
+# - title: Academic Interests
+#   type: nested_list
+#   contents:
+#     - title: Topic 1.
+#       items:
+#         - Description 1.
+#         - Description 2.
+#     - title: Topic 2.
+#       items:
+#         - Description 1.
+#         - Description 2.
+
+# - title: Other Interests
+#   type: list
+#   contents:
+#     - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
