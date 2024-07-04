@@ -9,6 +9,11 @@ Last updated: 5 June 2024
 
 This privacy notice tells you what to expect us to do with your personal information.
 
+TLDR; I'm using Google Analytics to learn about it and to track my site's behaviour. 
+If you wish to opt out, please click <a id='withdraw-consent' href='/privacy'>here</a> to withdraw your consent.
+
+Another way to opt-out from all google analytics tracking: [https://tools.google.com/dlpage/gaoptout](https://tools.google.com/dlpage/gaoptout)
+
 ---
 
 
@@ -34,9 +39,6 @@ Note that in some cases, your browser may have included a blocking function, whi
 Our lawful bases for collecting or using personal information for service updates or marketing purposes are:
 - Consent
 
-Click <a id='withdraw-consent' href='/privacy'>here</a> to withdraw your consent.
-
-Another way to opt-out from all google analytics tracking: [https://tools.google.com/dlpage/gaoptout](https://tools.google.com/dlpage/gaoptout)
 
 
 #### Where we get personal information from
