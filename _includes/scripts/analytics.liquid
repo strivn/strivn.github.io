@@ -1,109 +1,99 @@
 {% if site.enable_google_analytics %}
   <script>
-
-
     function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      var nameEQ = name + '=';
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
     }
-    return null;
-    }
-
 
     // Define dataLayer and the gtag function.
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
     // Set default consent to 'denied' as a placeholder
     // Determine actual values based on your own requirements
 
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 2000,
+    });
 
-    gtag ('consent', 'default', {
-        'ad_storage': 'denied', 
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
-        'wait_for_update': 2000})
-    
-    if (readCookie("grantedConsent") == "true") {
+    if (readCookie('grantedConsent') == 'true') {
       gtag('consent', 'update', {
-          'analytics_storage': 'granted'
-        });
+        analytics_storage: 'granted',
+      });
     }
 
     gtag('set', 'allow_google_signals', false);
     gtag('set', 'allow_ad_personalization_signals', false);
-
   </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
 
-      gtag('js', new Date());
-      // gtag('config', '{{ site.google_analytics }}');
-      gtag('config', '{{ site.google_analytics }}', {
-        cookie_expires: 30 * 24 * 60 * 60, // 30 days, in seconds
-        cookie_prefix: 'hello'
-      });
-
+    gtag('js', new Date());
+    // gtag('config', '{{ site.google_analytics }}');
+    gtag('config', '{{ site.google_analytics }}', {
+      cookie_expires: 30 * 24 * 60 * 60, // 30 days, in seconds
+      cookie_prefix: 'hello',
+    });
 
     function giveConsent() {
-
       // create a cookie to track consent
       var date = new Date();
-      date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-      document.cookie = "grantedConsent" + "=" + true  + expires + "; path=/; Secure";
+      date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+      expires = '; expires=' + date.toUTCString();
+      document.cookie = 'grantedConsent' + '=' + true + expires + '; path=/; Secure';
 
       gtag('consent', 'update', {
-        'analytics_storage': 'granted'
+        analytics_storage: 'granted',
       });
-      
     }
 
     function withdrawConsent() {
       // create a cookie to track consent
       var date = new Date();
-      date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-      document.cookie = "grantedConsent" + "=" + false + expires + "; path=/; Secure";
+      date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+      expires = '; expires=' + date.toUTCString();
+      document.cookie = 'grantedConsent' + '=' + false + expires + '; path=/; Secure';
 
       gtag('consent', 'update', {
-        'analytics_storage': 'denied'
+        analytics_storage: 'denied',
       });
-      
     }
 
     function toggleConsent() {
-      if (readCookie("grantedConsent") == "true") {
-        withdrawConsent()
-      } else { 
-        giveConsent()
+      if (readCookie('grantedConsent') == 'true') {
+        withdrawConsent();
+      } else {
+        giveConsent();
       }
     }
 
     // display banner or button
-    if (readCookie('grantedConsent') == "true") {
+    if (readCookie('grantedConsent') == 'true') {
     } else {
-    // if cookie doesn't exist
-    document.getElementById('cookie-button').style.display = 'none';
-    document.getElementById('cookie-notice').style.display = 'block';
+      // if cookie doesn't exist
+      document.getElementById('cookie-button').style.display = 'none';
+      document.getElementById('cookie-notice').style.display = 'block';
     }
-
   </script>
-
-
 {% endif %}
-
 
 {% if site.enable_cronitor_analytics %}
   <!-- Cronitor RUM -->

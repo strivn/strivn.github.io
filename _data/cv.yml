@@ -9,7 +9,7 @@
       value: English, Bahasa Indonesia
     - name: Link
       value: https://strivn.github.io
-    
+
 - title: Education
   type: time_table
   contents:
@@ -67,15 +67,12 @@
       items:
         - Alteryx Designer Core
 
-
 - title: Awards
   type: time_table
   contents:
     - year: 2023
       items:
         - Scholarship Awardee - Indonesia Endowment Fund for Education
-
-
 # - title: Academic Interests
 #   type: nested_list
 #   contents:

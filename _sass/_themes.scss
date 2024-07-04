@@ -67,7 +67,7 @@
 
 // Setting up cookie button
 
- #cookie-notice {
+#cookie-notice {
   /* padding: 0.5rem 1rem; */
   display: none;
   position: fixed;
@@ -112,17 +112,17 @@
   z-index: $back-to-top-z-index;
   border-radius: 50%;
   text-align: center;
-  position:fixed;
+  position: fixed;
 }
 
 #cookie-button i {
-  position:relative;
+  position: relative;
   top: calc(50% - 12px); /* 50% - 3/4 of icon height */
 }
 
 #cookie-button:hover {
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 html[data-theme="dark"] {

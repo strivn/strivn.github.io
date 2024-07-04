@@ -3,37 +3,27 @@
 </div>
 
 <div id="cookie-notice" class="container-mt-0">
-  <span>I'm using google analytics to track site interactions. Click here if you'd like to                                                                        
-    opt-in</span>
+  <span>I'm using google analytics to track site interactions. Click here if you'd like to opt-in</span>
   <a id="cookie-notice-accept" class="btn btn-primary btn-sm">Approve</a>
   <a href="/privacy" class="btn btn-primary btn-sm">More info</a>
 </div>
 
 <script>
-  document
-    .getElementById('cookie-notice-accept')
-    .addEventListener("click", function () {
-      giveConsent();
-      document.getElementById('cookie-notice').style.display = 'none';
-      location.reload();
-    });
+  document.getElementById('cookie-notice-accept').addEventListener('click', function () {
+    giveConsent();
+    document.getElementById('cookie-notice').style.display = 'none';
+    location.reload();
+  });
 
-  
-  document
-    .getElementById('cookie-button')
-    .addEventListener("click", function () {
-     location.href = '/privacy';
-    });
-    
+  document.getElementById('cookie-button').addEventListener('click', function () {
+    location.href = '/privacy';
+  });
 
   let path = window.location.pathname;
   if (path === '/privacy/') {
-  document
-    .getElementById('withdraw-consent')
-    .addEventListener("click", function () {
+    document.getElementById('withdraw-consent').addEventListener('click', function () {
       withdrawConsent();
-     location.href = '/privacy';
+      location.href = '/privacy';
     });
   }
-
 </script>

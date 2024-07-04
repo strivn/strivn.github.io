@@ -28,5 +28,4 @@ Bit of an background - I'm deeply curious about the intricate interplay between 
 
 Outside of professional work, I love taking pictures, reading books, and enjoying coffee. If you have any book or coffee recommendations, do let me know!
 
-
 <br>
